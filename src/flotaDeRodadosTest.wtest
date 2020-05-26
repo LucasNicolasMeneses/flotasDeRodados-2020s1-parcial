@@ -1,0 +1,152 @@
+import rodados.*
+import trafic.*
+import dependencias.* 
+
+test "deportesX" {
+	 // crea una dependencia llamada deportes
+     const deportes = new Dependencia()
+     
+     //seta la cantidad de empleados de la dependencia
+	 deportes.setEmpleados(45)
+	 
+     // crea una instancia llamada cachito que es un chevrolet Corsa
+     const cachito = new ChevroletCorsa()
+     
+     // crea una instancia que es un chevrolet corsa
+     const corsa1 = new ChevroletCorsa()
+     
+     // crea una instancia que es otro chevolet corsa
+	 const corsa2 = new ChevroletCorsa()
+	 
+	 // crea una instancia que es un renault kwid
+	 const kwid1 = new RenaultKwid()
+	 
+	 // crea una instancia que es un auto especial
+	 const fiatPunto = new AutosEspeciales()
+	
+	 
+	 // comprueva que aya 45 empleados en la dependencia
+	 assert.equals(45,deportes.empleados())
+	 
+	 // setea un color a la instancia cahito que es un chevroletCorsa
+	 cachito.setColor("Rojo")
+	 
+	 // setea un color a la instancia que es un chevrolet corsa1
+	 corsa1.setColor("Azul")
+	 
+	 // setea un color a la instancia que es un chevrolet corsa2
+     corsa2.setColor("Verde")
+     
+     // equipa a la instancia kwid 1 un tanque extra
+     kwid1.equiparTanqueExtra()
+     
+     // setea la capacidad de la instancia fiatPunto 
+     fiatPunto.setCapacidad(5)
+     
+     // setea la velocidadMaxima de la instancia fiatPunto
+     fiatPunto.setVelocidadMaxima(160)
+     
+     // setea el peso de la instancia fiatPunto
+     fiatPunto.setPeso(1200)
+     // setea el color de la instancia fiat Punto
+     
+     fiatPunto.setColor("beige")
+     // agrega un veiculo a la flota de la instancia deportes que es una dependencia
+     deportes.agregarAFlota(cachito)
+     
+     // agrega un veiculo a la flota de la instancia deportes que es una dependencia
+     deportes.agregarAFlota(corsa1)
+     
+     // agrega un veiculo a la flota de la instancia deportes que es una dependencia
+     deportes.agregarAFlota(corsa2)
+        
+     // agrega un veiculo a la flota de la instancia deportes que es una dependencia
+     deportes.agregarAFlota(kwid1)
+     
+     // agrega un veiculo a la flota de la instancia deportes que es una dependencia
+     deportes.agregarAFlota(fiatPunto)
+     
+     // comprueba si el peso total de la flota es correcto
+     assert.equals(6450,deportes.pesoTotalFlota())
+     
+     // comprueba si es cierto que esta bien equipada
+     assert.that(deportes.estaBienEquipada())  
+     
+     // compruba la cantidad de cpacidad de los rodados de  un determinado color
+     assert.equals(7,deportes.capacidadTotalEnColor("Azul"))
+     
+     // comprueba el color del rodado mas veloz
+     assert.equals("beige",deportes. colorDelRodadoMasRapido())
+     
+     //saber si la cantidad faltante es  correcta
+     assert.equals(25,deportes.capacidadFaltante())
+     
+     // comprobar si la dependencia es grande
+     assert.that(deportes.esGrande())
+}
+
+test "culturaX"{
+	 // crea una dependencia llamada deportes
+     const cultura = new Dependencia()
+     
+      
+	 //seta la cantidad de empleados de la dependencia
+	 cultura.setEmpleados(31)
+	 
+	  
+	 // comprueva que aya 45 empleados en la dependencia
+	 assert.equals(31,cultura.empleados())
+	 
+     // crea una instancia llamada cachito que es un chevrolet Corsa
+     const cachito = new ChevroletCorsa()
+     
+     // setea un color a la instancia cahito que es un chevroletCorsa
+	 cachito.setColor("Rojo")
+     
+     // crea una instancia renault Kwid 
+     const kwid2 = new RenaultKwid()
+     
+     // equipa a la instancia kwid 2 un tanque extra
+     kwid2.equiparTanqueExtra()
+     
+     // crea una instancia renault Kwid 
+     const kwid3 = new RenaultKwid()
+     
+     // equipa a la instancia kwid 1 un tanque extra
+     kwid3.equiparTanqueExtra()
+     
+     // crea una instancia renault Kwid 
+     const kwid4 = new RenaultKwid()
+     
+     
+     trafic.setInterior(interiorPop)
+     trafic.setMotor(motorBataton)
+     
+     cultura.agregarAFlota(cachito)
+     cultura.agregarAFlota(kwid2)
+     cultura.agregarAFlota(kwid3)
+     cultura.agregarAFlota(kwid4)
+     cultura.agregarAFlota(trafic)
+     
+     // comprueba si el peso total de la flota es correcto
+     assert.equals(10700,cultura.pesoTotalFlota())
+     
+     // comprueba si es cierto que esta bien equipada o no
+     assert.notThat(cultura.estaBienEquipada()) 
+     
+     // compruba la cantidad de cpacidad de los rodados de  un determinado color
+     assert.equals(10,cultura.capacidadTotalEnColor("Azul"))
+     
+     // comprueba el color del rodado mas veloz
+     assert.equals("Rojo",cultura. colorDelRodadoMasRapido())
+     
+     //saber si la cantidad faltante es  correcta
+     assert.equals(5,cultura.capacidadFaltante())
+     
+     // comprobar si la dependencia es grande
+     assert.notThat(cultura.esGrande())
+}
+
+
+
+
